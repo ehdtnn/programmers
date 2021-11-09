@@ -1,5 +1,9 @@
 package level1;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 public class MockExam {
     public int[] solution(int[] answers) {
         int[] answer = {};
@@ -17,36 +21,35 @@ public class MockExam {
         int cIndex = 0;
 
         for (int i = 0; i < answers.length; i++) {
-
-            if (i % a.length == 0) {
-                aIndex = 0;
-            }
-            if (i % b.length == 0) {
-                bIndex = 0;
-            }
-            if (i % c.length == 0) {
-                cIndex = 0;
-            }
-
+            // check
             if (a[aIndex] == answers[i]) {
                 aCount++;
             }
             if (b[bIndex] == answers[i]) {
                 bCount++;
             }
-            if (c[cIndex] == answers[i]) {
+            if (c[bIndex] == answers[i]) {
                 cCount++;
             }
 
+            // index init
+            if (aIndex != 0 && i % a.length-1 == 0){
+                aIndex = 0;
+            }
+            if (bIndex != 0 && i % b.length-1 == 0){
+                bIndex = 0;
+            }
+            if (cIndex != 0 && i % c.length-1 == 0) {
+                cIndex = 0;
+            }
+
+            // next index
             aIndex++;
             bIndex++;
             cIndex++;
         }
 
-        System.out.println(aCount);
-        System.out.println(bCount);
-        System.out.println(cCount);
-
         return answer;
     }
+
 }
