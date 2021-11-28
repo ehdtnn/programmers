@@ -1,33 +1,36 @@
 package level2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FeatureDeploy {
     public int[] solution(int[] progresses, int[] speeds) {
         int[] answer = {};
-        int[] days = new int[100];
+        int[] count = new int[100];
 
-        int min = getRequiredDay(progresses[0], speeds[0]);
-        for (int i = 1; i < progresses.length; i++) {
+        int deployDay = 0;
+        for (int i = 0; i < progresses.length; i++) {
             int requiredDay = getRequiredDay(progresses[i], speeds[i]);
-
-
-            // if (i == 0) {
-            //     min = requiredDay;
-            //     days[requiredDay] += 1;
-            //     continue;
-            // }
-            // if (min <= requiredDay) {
-            //     days[requiredDay] += 1;
-            // } else {
-            //     days[min] += 1;
-            //     min = requiredDay;
-            // }
+            if (deployDay < requiredDay) {
+                count[requiredDay]++;
+                deployDay = requiredDay;
+            } else {
+                count[deployDay]++;
+            }
         }
 
-        for (int i = 0; i < days.length; i++) {
-            if (days[i] == 0) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] == 0) {
                 continue;
             }
-            System.out.println("d : " + days[i]);
+            list.add(count[i]);
+        }
+
+        int size = list.size();
+        answer = new int[size];
+        for (int i = 0; i < size; i++) {
+            answer[i] = list.get(i);
         }
 
         return answer;
