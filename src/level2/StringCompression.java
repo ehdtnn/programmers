@@ -5,4 +5,8 @@ public class StringCompression {
         int answer = 0;
         return answer;
     }
+
+    public String getWord() {
+        return "";
+    }
 }
