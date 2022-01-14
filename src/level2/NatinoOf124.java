@@ -4,8 +4,6 @@ public class NatinoOf124 {
     public String solution(int n) {
         String answer = "";
 
-        String answer = "";
-
         if (n <= 2) {
             return Integer.toString(n);
         }
@@ -20,9 +18,6 @@ public class NatinoOf124 {
         }
 
         System.out.println("i : " + i);
-
-        return answer;
-
 
         return answer;
     }
