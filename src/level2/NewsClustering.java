@@ -6,3 +6,4 @@ public class NewsClustering {
         return answer;
     }
 }
+
