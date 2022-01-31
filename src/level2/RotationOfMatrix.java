@@ -16,6 +16,7 @@ public class RotationOfMatrix {
                 table[i][j] = count;
             }
         }
+        System.out.println("");
         int[] answer = new int[queries.length];
         int i = 0;
         for (int[] q : queries) {
